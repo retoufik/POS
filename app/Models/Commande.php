@@ -20,6 +20,13 @@ class Commande extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $guarded = ['id'];
+    
+    protected $casts = [
+        'date' => 'date',
+        'heure' => 'datetime',
+    ];
     
     public function details()
     {

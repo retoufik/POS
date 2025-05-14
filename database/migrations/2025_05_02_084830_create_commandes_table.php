@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('table_id');
             $table->foreignId('user_id');
             $table->text('observation');
-            $table->foreignId('mode_paiement_id');
+            $table->foreignId('mode_paiement_id')->nullable();
             $table->timestamps();
         });
 

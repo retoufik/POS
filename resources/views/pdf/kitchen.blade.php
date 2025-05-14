@@ -64,12 +64,12 @@
         <div class="header">
             <h2>KITCHEN TICKET</h2>
             <p class="important">ORDER #{{ $commande->id }}</p>
-            <p>{{ $date }}</p>
+            <p>{{ $commande->date }}</p>
         </div>
         
         <div class="ticket-info">
-            <p><strong>Type:</strong> {{ $type }}</p>
-            <p><strong>Table:</strong> {{ $table }}</p>
+            <p><strong>Type:</strong> {{ $commande->type->type }}</p>
+            <p><strong>Table:</strong> {{ $commande->table->Numero }}</p>
         </div>
         
         <table class="ticket-items">
@@ -81,13 +81,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($details as $detail)
+                @foreach($commande->details as $detail)
                 <tr>
                     <td>{{ $detail->qte }}</td>
                     <td>{{ $detail->article->designation }}</td>
                     <td class="message">
                         @if($detail->message)
-                            {{ $detail->message->nom }}
+                            {{ $detail->message->message }}
                         @endif
                     </td>
                 </tr>
@@ -95,10 +95,10 @@
             </tbody>
         </table>
         
-        @if($observation)
+        @if($commande->observation)
         <div class="observation">
             <p><strong>Observation:</strong></p>
-            <p>{{ $observation }}</p>
+            <p>{{ $commande->observation }}</p>
         </div>
         @endif
         
